@@ -2,9 +2,10 @@
   "name": "darius.js",
   "version": "0.0.0",
   "description": "a useful tool for react animation effects",
-  "main": "index.js",
+  "main": "./src/darius.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --entry ./.temp/app.jsx --output-path ./.temp/ --output-filename app.js --progress --watch"
   },
   "keywords": [
     "react",

@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/darius.js',
     output: {
         path: __dirname + '/dist/',
         filename: 'darius.js'
