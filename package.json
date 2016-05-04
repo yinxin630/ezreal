@@ -1,0 +1,16 @@
+{
+  "name": "darius.js",
+  "version": "0.0.0",
+  "description": "a useful tool for react animation effects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "animation",
+    "darius"
+  ],
+  "author": "yinxin630",
+  "license": "ISC"
+}
