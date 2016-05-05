@@ -1,5 +1,6 @@
 'use strict'
 import React, { Component } from 'react';
+import { effects, effectTypes } from './effects/effects.js';
 
 class Animation extends Component {
     constructor (props) {
@@ -8,7 +9,10 @@ class Animation extends Component {
     
     componentWillEnter (cb) {
         console.log('animation will enter');
-        cb();
+        
+        let duration = this.props.duration || 500;
+        effects.fade.componentWillEnter.call(this.refs.animation.style, duration);
+        setTimeout(cb, duration);
     }
     
     componentDidEnter () {
@@ -26,7 +30,7 @@ class Animation extends Component {
     
     render () {
         return (
-            <div style={ style }>
+            <div style={ style } ref="animation">
                 { this.props.children }
             </div>
         );
@@ -34,7 +38,7 @@ class Animation extends Component {
 }
 
 const style = {
-    dispaly: 'inline-block'
+    display: 'inline-block'
 };
 
 export default Animation;
