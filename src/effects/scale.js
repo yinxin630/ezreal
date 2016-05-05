@@ -4,7 +4,7 @@ const Scale = {
     componentWillEnter (duration) {
         transition({
             0: {
-                transform: 'scale(0)'
+                transform: 'scale(0.5)'
             },
             100: {
                 transform: 'scale(1)'
@@ -18,7 +18,7 @@ const Scale = {
                 transform: 'scale(1)'
             },
             100: {
-                transform: 'scale(0)'
+                transform: 'scale(0.5)'
             }
         }, duration, this);
     }
