@@ -9,7 +9,7 @@ const transition = function (animation, duration, styles) {
     
     for (let phase in animation) {
         let time = parseFloat(phase) / 100 * duration;
-        let actionDuration = time - (durations[durations.length - 1] || 0);
+        let actionDuration = time - (durations[durations.length - 1] || -10);
         let propertys = animation[phase];
         
         let action = (cb) => {

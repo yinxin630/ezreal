@@ -4,19 +4,21 @@ const fade = {
     componentWillEnter (duration) {
         transition({
             0: {
-                backgroundColor: 'red'
-            },
-            25: {
-                backgroundColor: 'yellow',
-                transform: 'scale(2) rotate(180deg)'
-            },
-            50: {
-                backgroundColor: 'blue',
-                transform: 'scale(0.5) rotate(-180deg)'
+                opacity: 0.01,
             },
             100: {
-                backgroundColor: 'green',
-                transform: 'scale(1)'
+                opacity: 1
+            }
+        }, duration, this);
+    },
+    
+    componentWillLeave (duration) {
+        transition({
+            0: {
+                opacity: 1
+            },
+            100: {
+                opacity: 0.01
             }
         }, duration, this);
     }
