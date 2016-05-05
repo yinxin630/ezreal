@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import { effects, effectTypes } from './effects/effects.js';
 
 class Animation extends Component {
+    static defaultProps = {
+        duration: 500
+    };
+    
     constructor (props) {
         super(props);
     }
@@ -10,9 +14,8 @@ class Animation extends Component {
     componentWillEnter (cb) {
         console.log('animation will enter');
         
-        let duration = this.props.duration || 500;
-        effects.fade.componentWillEnter.call(this.refs.animation.style, duration);
-        setTimeout(cb, duration);
+        effects.fade.componentWillEnter.call(this.refs.animation.style, this.props.duration);
+        setTimeout(cb, this.props.duration);
     }
     
     componentDidEnter () {
@@ -21,7 +24,9 @@ class Animation extends Component {
     
     componentWillLeave (cb) {
         console.log('animation will leave');
-        cb();
+        
+        effects.fade.componentWillLeave.call(this.refs.animation.style, this.props.duration);
+        setTimeout(cb, this.props.duration);
     }
     
     componentDidLeave () {
