@@ -4,29 +4,36 @@ import { effects, effectTypes } from './effects/effects.js';
 
 class Animation extends Component {
     static defaultProps = {
-        duration: 500
+        duration: 500,
+        type: 'fade'
     };
     
     constructor (props) {
         super(props);
     }
     
+    componentWillMount () {
+        if (!effects[this.props.type]) {
+            throw new Error(`type ${ this.props.type } not exists`);
+        }
+    }
+    
     componentWillEnter (cb) {
-        effects.fade.componentWillEnter.call(this.refs.animation.style, this.props.duration);
+        effects[this.props.type].componentWillEnter && effects[this.props.type].componentWillEnter.call(this.refs.animation.style, this.props.duration);
         setTimeout(cb, this.props.duration);
     }
     
     componentDidEnter () {
-        // console.log('animation did enter');
+        effects[this.props.type].componentDidEnter && effects[this.props.type].componentDidEnter.call(this.refs.animation.style, this.props.duration);
     }
     
     componentWillLeave (cb) {
-        effects.fade.componentWillLeave.call(this.refs.animation.style, this.props.duration);
+        effects[this.props.type].componentWillLeave && effects[this.props.type].componentWillLeave.call(this.refs.animation.style, this.props.duration);
         setTimeout(cb, this.props.duration);
     }
     
     componentDidLeave () {
-        // console.log('animation did leave');
+        effects[this.props.type].componentDidLeave && effects[this.props.type].componentDidLeave.call(this.refs.animation.style, this.props.duration);
     }
     
     render () {
