@@ -12,25 +12,21 @@ class Animation extends Component {
     }
     
     componentWillEnter (cb) {
-        console.log('animation will enter');
-        
         effects.fade.componentWillEnter.call(this.refs.animation.style, this.props.duration);
         setTimeout(cb, this.props.duration);
     }
     
     componentDidEnter () {
-        console.log('animation did enter');
+        // console.log('animation did enter');
     }
     
     componentWillLeave (cb) {
-        console.log('animation will leave');
-        
         effects.fade.componentWillLeave.call(this.refs.animation.style, this.props.duration);
         setTimeout(cb, this.props.duration);
     }
     
     componentDidLeave () {
-        console.log('animation did leave');
+        // console.log('animation did leave');
     }
     
     render () {

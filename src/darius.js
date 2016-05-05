@@ -15,14 +15,6 @@ class Darius extends Component {
             </ReactTransitionGroup>
         );
     }
-    
-    show () {
-        this.setState({ show: true });
-    }
-    
-    hidden () {
-        this.setState({ show: false });
-    }
 }
 
 export default Darius;
