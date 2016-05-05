@@ -1,7 +1,9 @@
 import fade from './fade.js';
+import scale from './scale.js';
 
 const effects = {
-    fade
+    fade,
+    scale
 };
 
 export default effects;

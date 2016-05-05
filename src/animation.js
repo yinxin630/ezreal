@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from 'react';
-import { effects, effectTypes } from './effects/effects.js';
+import effects from './effects/effects.js';
 
 class Animation extends Component {
     static defaultProps = {
