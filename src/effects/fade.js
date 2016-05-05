@@ -2,7 +2,6 @@ import transition from '../utils/transition.js';
 
 const fade = {
     componentWillEnter (duration) {
-        console.log(this);
         transition({
             0: {
                 backgroundColor: 'red'

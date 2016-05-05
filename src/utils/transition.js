@@ -1,6 +1,7 @@
 'use strict'
 
 import run from './run.js';
+import { toKebabCase } from 'strman';
 
 const transition = function (animation, duration, styles) {
     let actions = [];
@@ -16,7 +17,7 @@ const transition = function (animation, duration, styles) {
             for (let attr in propertys) {
                 if (propertys.hasOwnProperty(attr)) {
                     styles[attr] = propertys[attr];
-                    transitionValue += transitionValue === '' ? `${ 'background-color' } ${ actionDuration }ms` : `,${ attr } ${ actionDuration }ms`;
+                    transitionValue += transitionValue === '' ? `${ toKebabCase(attr) } ${ actionDuration }ms` : `,${ toKebabCase(attr) } ${ actionDuration }ms`;
                 }
             }
             styles['transition'] = transitionValue;

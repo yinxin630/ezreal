@@ -25,5 +25,8 @@
     "react-addons-transition-group": "^15.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0"
+  },
+  "dependencies": {
+    "strman": "^1.0.3"
   }
 }
