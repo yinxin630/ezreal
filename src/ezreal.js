@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ReactTransitionGroup from 'react-addons-transition-group';
 import Animation from './animation.js';
 
-class Darius extends Component {
+class Ezreal extends Component {
     constructor (props) {
         super(props);
     }
@@ -17,4 +17,4 @@ class Darius extends Component {
     }
 }
 
-export default Darius;
+export default Ezreal;

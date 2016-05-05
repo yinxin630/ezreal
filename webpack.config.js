@@ -1,8 +1,8 @@
 module.exports = {
-    entry: './src/darius.js',
+    entry: './src/ezreal.js',
     output: {
         path: __dirname + '/dist/',
-        filename: 'darius.js'
+        filename: 'ezreal.js'
     },
     watch: true,
     module: {
