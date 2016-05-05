@@ -31,14 +31,15 @@ const fade = {
             },
             25: {
                 backgroundColor: 'yellow',
-                transform: 'scale(2)'
+                transform: 'scale(2) rotate(180deg)'
             },
             50: {
                 backgroundColor: 'blue',
-                transform: 'scale(1)'
+                transform: 'scale(0.5) rotate(-180deg)'
             },
             100: {
-                backgroundColor: 'green'
+                backgroundColor: 'green',
+                transform: 'scale(1)'
             }
         }, duration, this);
     }

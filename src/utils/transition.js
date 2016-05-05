@@ -1,76 +1,34 @@
 'use strict'
 
-// transition delay
-const delay = 10;
-
-// const transition = {
-//     begin: function (styles, duration, property) {
-//         for (let attr in property) {
-//             if (styles.hasOwnProperty(attr)) {
-//                 styles[attr] = property[attr];
-//             }
-//         }
-//     },
-    
-//     end: function (styles, duration, property) {
-//         setTimeout(() => {
-//             let actions = '';
-//             for (let attr in property) {
-//                 if (styles.hasOwnProperty(attr)) {
-//                     styles[attr] = property[attr];
-//                     actions += actions === '' ? `${ attr } ${ duration }ms` : `,${ attr } ${ duration }ms`;
-//                 }
-//             }
-//             console.log(actions);
-//             styles['transition'] = actions;
-//         }, delay);
-//     }
-// };
-
-const P = (action) => {
-    return () => {
-        return new Promise(resolve => {
-            action(resolve);
-        });
-    };
-}
-
-function run (actions) {
-    var first = P(actions[0])();
-    for (var index = 1; index < actions.length; index++) {
-        first = first.then(P(actions[index]));
-    }
-}
+import run from './run.js';
 
 const transition = function (animation, duration, styles) {
     let actions = [];
     let durations = [];
-    let index = 0;
     
     for (let phase in animation) {
-        let time = (parseFloat(phase) - (durations[durations.length - 1] || 0)) * duration / 100;
+        let time = parseFloat(phase) / 100 * duration;
+        let actionDuration = time - (durations[durations.length - 1] || 0);
         let propertys = animation[phase];
-        console.log(parseFloat(phase), time);
         
         let action = (cb) => {
-            setTimeout(() => {
-                let transitionValue = '';
-                for (let attr in propertys) {
-                    if (propertys.hasOwnProperty(attr)) {
-                        styles[attr] = propertys[attr];
-                        transitionValue += transitionValue === '' ? `${ 'background-color' } ${ time }ms` : `,${ attr } ${ time }ms`;
-                    }
+            let transitionValue = '';
+            for (let attr in propertys) {
+                if (propertys.hasOwnProperty(attr)) {
+                    styles[attr] = propertys[attr];
+                    transitionValue += transitionValue === '' ? `${ 'background-color' } ${ actionDuration }ms` : `,${ attr } ${ actionDuration }ms`;
                 }
-                styles['transition'] = transitionValue;
+            }
+            styles['transition'] = transitionValue;
+            setTimeout(() => {
                 cb();
-            }, time);
+            }, actionDuration);
         };
         
         actions.push(action);
-        durations.push(parseFloat(phase));
+        durations.push(time);
     }
     
-    console.log(actions);
     run(actions);
 };
 
