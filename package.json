@@ -1,6 +1,6 @@
 {
-  "name": "darius.js",
-  "version": "0.0.0",
+  "name": "darius",
+  "version": "0.0.1",
   "description": "a useful tool for react animation effects",
   "main": "./src/darius.js",
   "scripts": {
@@ -12,7 +12,12 @@
     "animation",
     "darius"
   ],
-  "author": "yinxin630",
+  "author": {
+    "name": "yinxin630",
+    "email": "yinxin0616@163.com",
+    "url": "http://suisuijiang.com"
+  },
+  "repository": "https://github.com/yinxin630/Darius.js",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.8.0",
