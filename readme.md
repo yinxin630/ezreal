@@ -33,7 +33,7 @@ Appear animation is for component that show with page render
 
 ### Enter And Leave Animation
 
-Enter/leave animation is for component that you control it showed
+Enter/leave animation is for the component, which you can control it to be showed or not
 
 ```
 class App extends React.Component {
@@ -64,7 +64,7 @@ class App extends React.Component {
 
 ### Custom Animation
 
-You can pass property animations to Ezreal component. The property animations contain your animation action
+You can pass property animations to Ezreal component. Your animation action should be contained in the property animations
 
  example animations
  ```
