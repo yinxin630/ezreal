@@ -26,7 +26,7 @@ const Ezreal from 'ezreal';
 Appear animation is for component that show with page render
 
 ```
-<Ezreal type="fade" duration={ 500 }>
+<Ezreal type="fade-appear" duration={ 500 }>
     <YourComponent/>
 </Ezreal>
 ```
@@ -50,7 +50,7 @@ class App extends React.Component {
                 <p>{ this.props.type }</p>
                 <button onClick={ this.handleClick }>{ this.state.show ? 'hidden' : 'show' }</button>
                 <br/>
-                <Ezreal display={ this.state.show } type="fade" duration={ 500 }>
+                <Ezreal display={ this.state.show } type="fade-enter-leave" duration={ 500 }>
                     <YourComponent/>
                 </Ezreal>
             </div>
@@ -62,11 +62,13 @@ class App extends React.Component {
 }
 ```
 
+You can also use single enter or leave animation. Such as `fade-enter` or `fade-leave`
+
 ### Custom Animation
 
 You can pass property animations to Ezreal component. Your animation action should be contained in the property animations
 
- example animations
+ example animations:
  ```
  const animations = {
      componentWillAppear: {
@@ -80,4 +82,21 @@ You can pass property animations to Ezreal component. Your animation action shou
  }
  ```
  
- The animations contain 6 status. `componentWillAppear`, `componentDidAppear`, `componentWillEnter`, `componentDidEnter`, `componentWillLeave`, `componentDidLeave`
+ The animations contain 6 status:  
+ 
+ 1. `componentWillAppear`
+ 2. `componentDidAppear`
+ 3. `componentWillEnter`
+ 4. `componentDidEnter`
+ 5. `componentWillLeave`
+ 6. `componentDidLeave`
+
+## Available Type
+
+* fade
+* scale
+* wave
+* rotate
+* drop
+* fly
+* custom
