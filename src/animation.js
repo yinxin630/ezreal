@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import effects from './effects/effects.js';
 
+const types = [];
+Object.keys(effects).forEach(effect => types.push(...[effect + '-appear', effect + '-enter', effect + '-leave', effect + '-enter-leave']));
+
 class Animation extends Component {
     static defaultProps = {
         duration: 500,
@@ -11,7 +14,7 @@ class Animation extends Component {
     
     static propTypes = {
         duration: React.PropTypes.number,
-        type: React.PropTypes.oneOf(Object.keys(effects)),
+        type: React.PropTypes.oneOf(types),
         animations: React.PropTypes.object
     };
     
