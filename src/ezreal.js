@@ -4,6 +4,10 @@ import ReactTransitionGroup from 'react-addons-transition-group';
 import Animation from './animation.js';
 
 class Ezreal extends Component {
+    static defaultProps = {
+        display: true
+    };
+    
     constructor (props) {
         super(props);
     }
