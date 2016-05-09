@@ -25,6 +25,17 @@ class Animation extends Component {
         }
     }
     
+    componentWillAppear (cb) {
+        let { type, duration, animations } = this.props;
+        effects[type].componentWillAppear && effects[type].componentWillAppear.call(this.refs.animation.style, duration, animations.componentWillAppear);
+        setTimeout(cb, duration);
+    }
+    
+    componentDidAppear () {
+        let { type, duration, animations } = this.props;
+        effects[type].componentDidAppear && effects[type].componentDidAppear.call(this.refs.animation.style, duration, animations.componentDidAppear);
+    }
+    
     componentWillEnter (cb) {
         let { type, duration, animations } = this.props;
         effects[type].componentWillEnter && effects[type].componentWillEnter.call(this.refs.animation.style, duration, animations.componentWillEnter);

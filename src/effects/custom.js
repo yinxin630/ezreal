@@ -1,6 +1,18 @@
 import transition from '../utils/transition.js';
 
 const fade = {
+    componentWillAppear (duration, animation) {
+        if (animation) {
+            transition(animation, duration, this);
+        }
+    },
+    
+    componentDidAppear (duration, animation) {
+        if (animation) {
+            transition(animation, duration, this);
+        }
+    },
+    
     componentWillEnter (duration, animation) {
         if (animation) {
             transition(animation, duration, this);
