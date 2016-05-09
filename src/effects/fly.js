@@ -1,6 +1,10 @@
 import transition from '../utils/transition.js';
 
 const Fly = {
+    componentWillAppear (duration) {
+        Fly.componentWillEnter.call(this, duration);
+    },
+    
     componentWillEnter (duration) {
         transition({
             0: {

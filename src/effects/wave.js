@@ -1,6 +1,10 @@
 import transition from '../utils/transition.js';
 
 const Wave = {
+    componentWillAppear (duration) {
+        Wave.componentWillEnter.call(this, duration);
+    },
+    
     componentWillEnter (duration) {
         transition({
             0: {

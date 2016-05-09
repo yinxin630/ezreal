@@ -1,6 +1,10 @@
 import transition from '../utils/transition.js';
 
 const Scale = {
+    componentWillAppear (duration) {
+        Scale.componentWillEnter.call(this, duration);
+    },
+    
     componentWillEnter (duration) {
         transition({
             0: {

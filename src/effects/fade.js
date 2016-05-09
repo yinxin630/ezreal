@@ -1,6 +1,10 @@
 import transition from '../utils/transition.js';
 
-const fade = {
+const Fade = {
+    componentWillAppear (duration) {
+        Fade.componentWillEnter.call(this, duration);
+    },
+    
     componentWillEnter (duration) {
         transition({
             0: {
@@ -24,4 +28,4 @@ const fade = {
     }
 };
 
-export default fade;
+export default Fade;

@@ -1,6 +1,6 @@
 import transition from '../utils/transition.js';
 
-const fade = {
+const Custom = {
     componentWillAppear (duration, animation) {
         if (animation) {
             transition(animation, duration, this);
@@ -38,4 +38,4 @@ const fade = {
     },
 };
 
-export default fade;
+export default Custom;

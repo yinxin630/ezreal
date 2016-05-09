@@ -1,6 +1,10 @@
 import transition from '../utils/transition.js';
 
 const Rotate = {
+    componentWillAppear (duration) {
+        Rotate.componentWillEnter.call(this, duration);
+    },
+    
     componentWillEnter (duration) {
         transition({
             0: {

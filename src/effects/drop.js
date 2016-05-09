@@ -1,6 +1,10 @@
 import transition from '../utils/transition.js';
 
 const Drop = {
+    componentWillAppear (duration) {
+        Drop.componentWillEnter.call(this, duration);
+    },
+    
     componentWillEnter (duration) {
         transition({
             0: {
