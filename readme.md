@@ -100,3 +100,11 @@ You can pass property animations to Ezreal component. Your animation action shou
 * drop
 * fly
 * custom
+
+## Contribute
+
+1. Fork it
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -m 'feat|fix|refactor|doc(modified area): a short description'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request
