@@ -22,42 +22,60 @@ class Animation extends Component {
         super(props);
     }
     
-    componentWillMount () {
-        if (!effects[this.props.type]) {
-            throw new Error(`type ${ this.props.type } not exists`);
-        }
-    }
-    
     componentWillAppear (cb) {
         let { type, duration, animations } = this.props;
-        effects[type].componentWillAppear && effects[type].componentWillAppear.call(this.refs.animation.style, duration, animations.componentWillAppear);
-        setTimeout(cb, duration);
+        
+        if (type.match(/appear/)) {
+            type = type.slice(0, type.indexOf('-'));
+            effects[type].componentWillAppear && effects[type].componentWillAppear.call(this.refs.animation.style, duration, animations.componentWillAppear);
+            setTimeout(cb, duration);
+        }
+        else {
+            cb();
+        }
     }
     
     componentDidAppear () {
         let { type, duration, animations } = this.props;
+        type = type.slice(0, type.indexOf('-'));
         effects[type].componentDidAppear && effects[type].componentDidAppear.call(this.refs.animation.style, duration, animations.componentDidAppear);
     }
     
     componentWillEnter (cb) {
         let { type, duration, animations } = this.props;
-        effects[type].componentWillEnter && effects[type].componentWillEnter.call(this.refs.animation.style, duration, animations.componentWillEnter);
-        setTimeout(cb, duration);
+        
+        if (type.match(/enter/)) {
+            type = type.slice(0, type.indexOf('-'));
+            effects[type].componentWillEnter && effects[type].componentWillEnter.call(this.refs.animation.style, duration, animations.componentWillEnter);
+            setTimeout(cb, duration);
+        }
+        else {
+            cb();
+        }
     }
     
     componentDidEnter () {
         let { type, duration, animations } = this.props;
+        type = type.slice(0, type.indexOf('-'));
         effects[type].componentDidEnter && effects[type].componentDidEnter.call(this.refs.animation.style, duration, animations.componentDidEnter);
     }
     
     componentWillLeave (cb) {
         let { type, duration, animations } = this.props;
-        effects[type].componentWillLeave && effects[type].componentWillLeave.call(this.refs.animation.style, duration, animations.componentWillLeave);
-        setTimeout(cb, this.props.duration);
+        
+        if (type.match(/leave/)) {
+            type = type.slice(0, type.indexOf('-'));
+            effects[type].componentWillLeave && effects[type].componentWillLeave.call(this.refs.animation.style, duration, animations.componentWillLeave);
+            setTimeout(cb, this.props.duration);
+        }
+        else {
+            cb();
+        }
     }
     
     componentDidLeave () {
         let { type, duration, animations } = this.props;
+        type = type.slice(0, type.indexOf('-'));
         effects[type].componentDidLeave && effects[type].componentDidLeave.call(this.refs.animation.style, duration, animations.componentDidLeave);
     }
     
