@@ -9,6 +9,12 @@ class Animation extends Component {
         animations: {}
     };
     
+    static propTypes = {
+        duration: React.PropTypes.number,
+        type: React.PropTypes.oneOf(Object.keys(effects)),
+        animations: React.PropTypes.object
+    };
+    
     constructor (props) {
         super(props);
     }
