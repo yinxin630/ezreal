@@ -5,7 +5,8 @@ import effects from './effects/effects.js';
 class Animation extends Component {
     static defaultProps = {
         duration: 500,
-        type: 'fade'
+        type: 'fade',
+        animations: {}
     };
     
     constructor (props) {
@@ -19,21 +20,25 @@ class Animation extends Component {
     }
     
     componentWillEnter (cb) {
-        effects[this.props.type].componentWillEnter && effects[this.props.type].componentWillEnter.call(this.refs.animation.style, this.props.duration);
-        setTimeout(cb, this.props.duration);
+        let { type, duration, animations } = this.props;
+        effects[type].componentWillEnter && effects[type].componentWillEnter.call(this.refs.animation.style, duration, animations.componentWillEnter);
+        setTimeout(cb, duration);
     }
     
     componentDidEnter () {
-        effects[this.props.type].componentDidEnter && effects[this.props.type].componentDidEnter.call(this.refs.animation.style, this.props.duration);
+        let { type, duration, animations } = this.props;
+        effects[type].componentDidEnter && effects[type].componentDidEnter.call(this.refs.animation.style, duration, animations.componentDidEnter);
     }
     
     componentWillLeave (cb) {
-        effects[this.props.type].componentWillLeave && effects[this.props.type].componentWillLeave.call(this.refs.animation.style, this.props.duration);
+        let { type, duration, animations } = this.props;
+        effects[type].componentWillLeave && effects[type].componentWillLeave.call(this.refs.animation.style, duration, animations.componentWillLeave);
         setTimeout(cb, this.props.duration);
     }
     
     componentDidLeave () {
-        effects[this.props.type].componentDidLeave && effects[this.props.type].componentDidLeave.call(this.refs.animation.style, this.props.duration);
+        let { type, duration, animations } = this.props;
+        effects[type].componentDidLeave && effects[type].componentDidLeave.call(this.refs.animation.style, duration, animations.componentDidLeave);
     }
     
     render () {
