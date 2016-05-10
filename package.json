@@ -1,11 +1,12 @@
 {
   "name": "ezreal",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "a useful tool for react animation effects",
   "main": "./src/ezreal.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --entry ./.temp/app.jsx --output-path ./.temp/ --output-filename app.js --progress --watch"
+    "dev": "webpack --entry ./.temp/app.jsx --output-path ./.temp/ --output-filename app.js --progress --watch",
+    "compile": "./node_modules/.bin/babel --presets react,es2015,stage-0 -d lib/ src/"
   },
   "keywords": [
     "react",
