@@ -33,7 +33,7 @@ Appear animation is for component that show with page render
 
 ### Enter And Leave Animation
 
-Enter/leave animation is for the component, which you can control it to be showed or not
+Enter/leave animation is for the component, which you can control it to be showed or not. So you should pass boolean property display to emit `Enter` or `Leave` action
 
 ```
 class App extends React.Component {
@@ -68,18 +68,22 @@ You can also use single enter or leave animation. Such as `fade-enter` or `fade-
 
 You can pass property animations to Ezreal component. Your animation action should be contained in the property animations
 
- example animations:
- ```
- const animations = {
-     componentWillAppear: {
-         0: {
-             transform: 'scale(2)'
-         },
-         100: {
-             transform: 'scale(1)'
-         }
-     },
- }
+example:
+```
+const animations = {
+    componentWillAppear: {
+        0: {
+            transform: 'scale(2)'
+        },
+        100: {
+            transform: 'scale(1)'
+        }
+    },
+}
+ 
+<Ezreal type="custom-appear" duration={ 500 }>
+    <YourComponent/>
+</Ezreal>
  ```
  
  The animations contain 6 status:  
