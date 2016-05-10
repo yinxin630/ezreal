@@ -4,7 +4,7 @@ a useful tool for react animation effects
 
 ## Install
 
-use npm: `npm run ezreal --save`
+use npm: `npm install ezreal --save`
 
 ## Usage
 
