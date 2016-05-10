@@ -18,7 +18,7 @@ import Ezreal from 'ezreal';
 ### With CommonJS/require
 
 ```
-const Ezreal from 'ezreal';
+const Ezreal require('ezreal');
 ```
 
 ### Appear Animation
