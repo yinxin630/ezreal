@@ -18,7 +18,7 @@
     "url": "http://suisuijiang.com"
   },
   "repository": "https://github.com/yinxin630/ezreal",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.8.0",
     "babel-loader": "^6.2.4",
