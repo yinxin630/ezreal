@@ -21,4 +21,5 @@ class Ezreal extends Component {
     }
 }
 
+module.exports = Ezreal;
 export default Ezreal;
