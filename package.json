@@ -1,6 +1,6 @@
 {
   "name": "ezreal",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a useful tool for react animation effects",
   "main": "./lib/ezreal.js",
   "scripts": {
