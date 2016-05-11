@@ -105,6 +105,37 @@ const animations = {
 * fly
 * custom
 
+## Container Element
+
+You component will be warpped in a div (animation container) and a span (react addon element). Some times, thest elements will affect your component layout. So you can pass style and containerStyle to control the style of these elements. `style` is for outer span. `containerStyle` is for inner div
+
+example:
+
+```
+onst styles = {
+    outerSpan: {
+        flex: 1
+    },
+    innerDiv: {
+        display: flex
+    },
+    container: {
+        display: flex
+    },
+    yourComponent: {
+        flex: 1
+    }
+}
+
+<div style={ styles.container }>
+    <Ezreal type="fade-appear" style={ styles.outerSpan } containerStyle={ styles.innerDiv }>
+        <YourComponent/>
+    </Ezreal>
+</div>
+```
+
+Such as, your component will continue to apply the correct properties
+
 ## Contribute
 
 1. Fork it
