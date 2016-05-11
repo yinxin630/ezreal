@@ -13,9 +13,11 @@ class Ezreal extends Component {
     }
     
     render () {
+        let { display, style, containerStyle, ...other } = this.props;
+        
         return (
-            <ReactTransitionGroup>
-                { this.props.display ? <Animation {...this.props}/> : undefined }
+            <ReactTransitionGroup style={ style }>
+                { display ? <Animation style={ containerStyle } {...other}/> : undefined }
             </ReactTransitionGroup>
         );
     }

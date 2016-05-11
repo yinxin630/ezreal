@@ -81,15 +81,11 @@ class Animation extends Component {
     
     render () {
         return (
-            <div style={ style } ref="animation">
+            <div ref="animation" style={ this.props.style }>
                 { this.props.children }
             </div>
         );
     }
 }
-
-const style = {
-    display: 'inline-block'
-};
 
 export default Animation;
